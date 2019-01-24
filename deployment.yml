@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ilc-hello-deployment
+  labels:
+    app: ilc-hello
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ilc-hello
+  template:
+    metadata:
+      labels:
+        app: ilc-hello
+    spec:
+      containers:
+      - name: ilc-hello
+        image: ilc-hello
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 3000
